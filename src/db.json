@@ -1,0 +1,79 @@
+{
+    "data": [
+        {
+            "id": 1,
+            "title": "Lionheart",
+            "duration": 108,
+            "director": "Sheldon Lettich",
+            "cast":["Jean-Claude Van Damme", "Harrison Page","Deborah Rennard"],
+            "writers":["S.N. Warren","Jean-Claude Van Damme"],
+            "rating": "R",
+            "year": 1991,
+            "genre":["Action","Crime","Drama","Sport"],
+            "imgCode":"lionheart",
+            "description":"Lyon Gaultier is a deserter in the Foreign Legion arriving in the USA entirely hard up. He finds his brother between life and death and his sister-in-law without the money needed to heal her husband and to maintain her child. To earn the money needed, Gaultier decides to take part in some very dangerous clandestine fights.",
+            "comments":[
+                {
+                    "createdAt":"",
+                    "nickname":"",
+                    "body":""
+                },
+                {
+                    "createdAt":"",
+                    "nickname":"",
+                    "body":""
+                }
+            ]     
+        },
+        {
+            "id": 2,
+            "title": "Bloodsport",
+            "duration": 92,
+            "director": "Newt Arnold",
+            "cast":["Jean-Claude Van Damme", "Donald Gibb","Leah Ayres"],
+            "writers":["Sheldon Lettich","Christopher Cosby"],
+            "rating": "R",
+            "year": 1988,
+            "genre":["Action","Biography","Drama","Sport"],
+            "imgCode":"bloodsport",
+            "description":"Frank Dux has spent most his life being trained by Tanaka to participate in the Kumite, the ultimate martial arts tournament, where participants are seriously injured, even killed. Frank decides to go despite being told by his superiors in the army that he can't because they need him. Two army officers are sent to get him and the trail leads to Hong Kong but Frank eludes them. While Frank advances, he knows that he may have to face Chong Li, the defending champion, who has killed a few participants.",
+            "comments":[
+                {
+                    "createdAt":"",
+                    "nickname":"",
+                    "body":""
+                },
+                {
+                    "createdAt":"",
+                    "nickname":"",
+                    "body":""
+                }
+            ]         
+        },
+        {
+            "id": 3,
+            "title": "Fight Club",
+            "duration": 139,
+            "director": "David Fincher",
+            "cast":["Brad Pitt", "Edward Norton","Meat Loaf"],
+            "writers":["Chuck Palahniuk","Jim Uhls"],
+            "rating": "R",
+            "year": 1999,
+            "genre":["Drama"],
+            "imgCode":"fight-club",
+            "description":"A nameless first person narrator (Edward Norton) attends support groups in attempt to subdue his emotional state and relieve his insomniac state. When he meets Marla (Helena Bonham Carter), another fake attendee of support groups, his life seems to become a little more bearable. However when he associates himself with Tyler (Brad Pitt) he is dragged into an underground fight club and soap making scheme. Together the two men spiral out of control and engage in competitive rivalry for love and power. When the narrator is exposed to the hidden agenda of Tyler's fight club, he must accept the awful truth that Tyler may not be who he says he is..",
+            "comments":[
+                {
+                    "createdAt":"",
+                    "nickname":"",
+                    "body":""
+                },
+                {
+                    "createdAt":"",
+                    "nickname":"",
+                    "body":""
+                }
+            ]       
+        }
+    ]
+}

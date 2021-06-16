@@ -13,7 +13,7 @@ const MovieDetailPage = () => {
     }, [id]);
 
     return (
-        <div >
+        <div className="movie-detail">
 
         </div>
     );

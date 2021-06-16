@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Link } from 'react-router-dom';
 
 
 const MovieList = () => {
@@ -12,14 +13,32 @@ const MovieList = () => {
     }, [])
 
     const renderList = movieList.map(movie => (
-        <h1 key={movie.id}>{movie.title}</h1>
+        <Link to={`/movie/${movie.id}`}>
+            <div key={movie.id} className="movie-indiv">
+                <img src={`http://localhost:3000/img/${movie.imgCode}.jpg`} alt={movie.title} /> {/* из-за расширения не показывает некоторые картинки */}
+                <div className="hover-info">
+                    <div className="title-rating">
+                        <h4>{movie.title}</h4>
+                        <span>{movie.rating}</span>
+                    </div>
+                    <div className="year-genre">
+                        <span>{movie.year}</span>
+                        <span><i class="fas fa-star"></i> {movie.imdb}</span>
+                    </div>
+                    <div className="descr">
+                        {movie.description}
+                    </div>
+                </div>
+            </div>
+        </Link>
     ))
 
-    console.log(renderList)
 
     return (
         <div>
-            {renderList}
+            <div className="movie-container container">
+                {renderList}
+            </div>
         </div>
     );
 }

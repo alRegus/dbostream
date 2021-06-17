@@ -13,13 +13,19 @@ const MovieDetailPage = () => {
     }, [id]);
 
     let backGround
+    let video
+
+    //квери селектор на класс модал тут почему-то не работал,выдавал null,сработал внутри функции которая вызывает кликом в jsx элементе
+
 
     switch (movie.imgCode) {
         case "lionheart":
             backGround = 'linear-gradient(90deg, rgba(0,0,0,1) 41%, rgba(253,29,29,0.9472163865546218) 80%, rgba(255,205,134,1) 100%)';
+            video = '<iframe src="https://www.youtube.com/embed/QKqjwvWNnzg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
             break;
         case "bloodsport":
             backGround = 'linear-gradient(90deg, rgba(0,0,0,1) 41%, rgba(98,66,66,1) 80%, rgba(166,21,21,1) 100%)';
+            video = '<iframe src="https://www.youtube.com/embed/BION4_Lh2ls" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>'
             break;
         case "fight-club":
             backGround = 'linear-gradient(90deg, rgba(0,0,0,1) 41%, rgba(219,0,222,1) 80%, rgba(19,198,144,1) 100%)';
@@ -77,17 +83,22 @@ const MovieDetailPage = () => {
             break;
         default:
             backGround = 'black'
-
     }
 
     function handleModal() {
-        document.querySelector('.modal').style.visibility = 'visible'
+        const modal = document.querySelector('.modal')
+        modal.style.visibility = 'visible'
+        modal.innerHTML += video
+    }
+
+    function handleClose() {  //!! не работает
+        document.querySelector('.modal').removeAttribute('style')
     }
 
     return (
         <div className="movie-detail" style={{ "background": backGround }}>
             <div className="modal">
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/BION4_Lh2ls" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <div className="modal-back"><i className="far fa-window-close" onClick={handleClose}></i></div>
             </div>
             <div className="movie-descr">
                 <div className="movie-persons">
@@ -124,6 +135,9 @@ const MovieDetailPage = () => {
             </div>
         </div >
     );
+
+
 }
+
 
 export default MovieDetailPage;

@@ -4,7 +4,7 @@
     justify-content: space-between
     align-items: center
     padding: 30px 80px
-    height: 100vh
+    height: 94.8vh
     background: rgb(0, 0, 0)
     .modal
         position: fixed
@@ -16,7 +16,24 @@
         z-index: 10
         visibility: hidden
         iframe
-            margin-left: 100px
+            display: block
+            position: absolute
+            left: 50%
+            top: 50%
+            transform: translate(-50%, -50%)
+            width: 70vh
+            height: 50vh
+        &-back
+            position: absolute
+            top: 65px
+            right: 80px
+            i
+                color: #fff
+                font-size: 50px
+                &:hover
+                    color: lightgrey
+                &:active
+                    transform: scale(0.9)
     .movie-descr
         display: flex
         justify-content: space-between

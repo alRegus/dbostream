@@ -3,6 +3,18 @@
     margin: 0
     box-sizing: border-box
 
+html
+    scroll-behavior: smooth
+
+body::-webkit-scrollbar
+    width: 12px
+
+body::-webkit-scrollbar-thumb
+    background-color: rgba(0, 0, 0, 0.822)
+    min-height: 40px
+    &:hover
+        background-color: darkgrey
+
 .container
     width: 1300px
     margin: 0 auto

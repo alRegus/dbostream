@@ -6,7 +6,7 @@ const Header = () => {
             </div>
             <form className="search-bar">
                 <input type="text" placeholder="search movie..." />
-                <i class="fas fa-search"></i>
+                <i className="fas fa-search"></i>
             </form>
         </div>
     );

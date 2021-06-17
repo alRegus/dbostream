@@ -23,7 +23,7 @@ const MovieList = () => {
                     </div>
                     <div className="year-genre">
                         <span>{movie.year}</span>
-                        <span><i class="fas fa-star"></i> {movie.imdb}</span>
+                        <span><i className="fas fa-star"></i> {movie.imdb}</span>
                     </div>
                     <div className="descr">
                         {movie.description}

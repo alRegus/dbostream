@@ -88,17 +88,19 @@ const MovieDetailPage = () => {
     function handleModal() {
         const modal = document.querySelector('.modal')
         modal.style.visibility = 'visible'
-        modal.innerHTML += video
+
+        document.querySelector('.vid-container').innerHTML = video //*решил проблему с iframe из-за которого не позволяло наживать на крестик путем добавления iframe в отдельный контейнер(vid-container) а не в само окно modal как это было
     }
 
-    function handleClose() {  //!! не работает
-        document.querySelector('.modal').removeAttribute('style')
+    const handleClose = () => { //!! в консоле разработчика при клике на элемент выбирает ::before(не поэтому, в movielist все также но работает + я убрал фонт аусом и поставил просто х и всеравно не работает),работает на .modal, дело наверно в z-index(нет не в нем)(РАЗОБРАЛСЯ - мешает iframe который вставляется)
+        document.querySelector('.modal').style.visibility = 'hidden'
     }
 
     return (
         <div className="movie-detail" style={{ "background": backGround }}>
-            <div className="modal">
-                <div className="modal-back"><i className="far fa-window-close" onClick={handleClose}></i></div>
+            <div className="modal" onClick={() => { console.log('click') }}>
+                <div className="vid-container"></div>
+                <div className="modal-back" onClick={handleClose}><i className="far fa-window-close"></i></div>
             </div>
             <div className="movie-descr">
                 <div className="movie-persons">

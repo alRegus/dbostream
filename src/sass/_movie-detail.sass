@@ -4,7 +4,7 @@
     justify-content: space-between
     align-items: center
     padding: 30px 80px
-    height: 94.8vh
+    height: 100vh
     background: rgb(0, 0, 0)
     .modal
         position: fixed
@@ -13,7 +13,7 @@
         height: 100vh
         top: 0
         left: 0
-        z-index: 10
+        z-index: 1
         visibility: hidden
         iframe
             display: block
@@ -27,7 +27,9 @@
             position: absolute
             top: 65px
             right: 80px
+            z-index: 999
             i
+                /** pointer-events: none если нужно убать кликание на чемто**/
                 color: #fff
                 font-size: 50px
                 &:hover

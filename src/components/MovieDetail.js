@@ -118,7 +118,7 @@ const MovieDetailPage = () => {
                     </div>
                 </div>
                 <div className="movie-rest">
-                    <h1>{movie.title}</h1>
+                    <h1 style={{ 'color': '#fff' }}>{movie.title}</h1>
                     <div className="movie-rest-info">
                         <span><i className="fas fa-star"></i> {movie.imdb}</span>
                         <span>{movie.duration} minutes</span>

@@ -1,10 +1,12 @@
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
 
 
-const MovieList = () => {
+const MovieList = ({ inputResult }) => {
 
     const [movieList, setMovieList] = useState([])
+
+    console.log(inputResult)
 
     useEffect(() => {
         fetch('http://localhost:8000/data')

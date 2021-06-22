@@ -6,8 +6,6 @@ const MovieList = ({ inputResult }) => {
 
     const [movieList, setMovieList] = useState([])
 
-    console.log(inputResult)
-
     useEffect(() => {
         fetch('http://localhost:8000/data')
             .then(res => res.json())
@@ -27,11 +25,15 @@ const MovieList = ({ inputResult }) => {
         }
     }) */
 
+    console.log(inputResult.toUpperCase().replace(/\s+/g, ''))
 
+    const filteredMovieList = movieList.filter(elem => {
+        return elem.title.toUpperCase().replace(/\s+/g, '').includes(inputResult.toUpperCase().replace(/\s+/g, '')) //убирает все пробелы (trim() убирает только в начале и в конце)
+    })
 
-    const renderList = movieList.map(movie => (
-        <Link to={`/movie/${movie.id}`}>
-            <div key={movie.id} className="movie-indiv">
+    const renderFilteredList = filteredMovieList.map(movie => (
+        <Link key={movie.id} to={`/movie/${movie.id}`}>
+            <div className="movie-indiv">
                 <img src={`http://localhost:3000/img/${movie.imgCode}.jpg`} alt={movie.title} /> {/* из-за расширения не показывает некоторые картинки */}
                 <div className="hover-info">
                     <div className="title-rating">
@@ -49,6 +51,29 @@ const MovieList = ({ inputResult }) => {
             </div>
         </Link>
     ))
+
+    console.log(filteredMovieList)
+
+    //  const renderList = movieList.map(movie => (
+    //      <Link key={movie.id} to={`/movie/${movie.id}`}>
+    //          <div className="movie-indiv">
+    //              <img src={`http://localhost:3000/img/${movie.imgCode}.jpg`} alt={movie.title} /> {/* из-за расширения не показывает некоторые картинки */}
+    //              <div className="hover-info">
+    //                  <div className="title-rating">
+    //                      <h4>{movie.title}</h4>
+    //                      <span>{movie.rating}</span>
+    //                  </div>
+    //                  <div className="year-genre">
+    //                      <span>{movie.year}</span>
+    //                      <span><i className="fas fa-star"></i> {movie.imdb}</span>
+    //                  </div>
+    //                  <div className="descr">
+    //                       {movie.description}
+    //                  </div>
+    //              </div>
+    //          </div>
+    //      </Link>
+    //  ))
 
     function handleScroll() { //!!не работает почему-то с onScroll(наверно потому что скролится window а не элемент) onWheel работает
 
@@ -72,7 +97,8 @@ const MovieList = ({ inputResult }) => {
     return (
         <div className="main-container" onWheel={handleScroll}>
             <div className="movie-container container">
-                {renderList}
+                {/* {renderList} */}
+                {renderFilteredList}
                 <div className="arrow-up"><a href="#header" onClick={handleArrowClose}><i className="fas fa-long-arrow-alt-up"></i></a></div>
             </div>
         </div>

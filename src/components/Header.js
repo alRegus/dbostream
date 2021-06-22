@@ -1,11 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 
 const Header = ({ setInputResult }) => {
 
     const [input, setInput] = useState('')
 
-    setInputResult(input)
+    useEffect(() => { //обернул в useeffect чтоб функция выполнялась когда компонент загрузится бузе неё давала ошибку Cannot update a component (`App`) while rendering a different component ('Header')
+        setInputResult(input)
+    })
 
     return (
         <div id="header" className="header">
@@ -13,7 +15,7 @@ const Header = ({ setInputResult }) => {
                 <h1>DBO+</h1>
             </div>
             <form className="search-bar">
-                <input type="text" value={input} placeholder="search movie..." onChange={e => setInput(e.target.value)} />
+                <input type="text" value={input} placeholder="search movie..." onChange={e => { setInput(e.target.value); e.preventDefault() }} />
                 <i className="fas fa-search"></i>
             </form>
         </div>

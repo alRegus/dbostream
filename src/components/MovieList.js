@@ -31,6 +31,8 @@ const MovieList = ({ inputResult }) => {
         return elem.title.toUpperCase().replace(/\s+/g, '').includes(inputResult.toUpperCase().replace(/\s+/g, '')) //убирает все пробелы (trim() убирает только в начале и в конце)
     })
 
+    console.log(filteredMovieList)
+
     const renderFilteredList = filteredMovieList.map(movie => (
         <Link key={movie.id} to={`/movie/${movie.id}`}>
             <div className="movie-indiv">
@@ -88,9 +90,17 @@ const MovieList = ({ inputResult }) => {
         }
     }
 
-    function handleArrowClose() {
+    window.addEventListener('scroll', () => { //для того чтоб стрелочка появлялась при использовании scrollbar зажав и опуская его
+        if (window.scrollY >= 300) {
+            document.querySelector('.arrow-up').setAttribute('style', 'visibility: visible')
+        } else {
+            document.querySelector('.arrow-up').setAttribute('style', 'visibility: hidden')
+        }
+    })
+
+    /* function handleArrowClose() {
         document.querySelector('.arrow-up').setAttribute('style', 'visibility: hidden')
-    }
+    } */ //не нужно,так как window.scroll эвент и так будет стрелку убирать
 
     //!! useRef первое значение даст undefined а потом даст то на что ссылался это потому что она исполняется пока еще не срендарилось а когда срендарилось уже есть что брать
 
@@ -99,7 +109,7 @@ const MovieList = ({ inputResult }) => {
             <div className="movie-container container">
                 {/* {renderList} */}
                 {renderFilteredList}
-                <div className="arrow-up"><a href="#header" onClick={handleArrowClose}><i className="fas fa-long-arrow-alt-up"></i></a></div>
+                <div className="arrow-up"><a href="#header" /* onClick={handleArrowClose} */><i className="fas fa-long-arrow-alt-up"></i></a></div>
             </div>
         </div>
     );

@@ -16,9 +16,10 @@ function App() {
     <div className="App">
       <Router>
         <div>
-          <Header setInputResult={setInputResult} />
+
           <Switch>
             <Route exact path="/">
+              <Header setInputResult={setInputResult} />
               <MovieList inputResult={inputResult} />
             </Route>
             <Route path="/movie/:id"> {/* с параметром что после двоеточия связан useParam в MovieDetailPage,они должны быть с одинаковым названием */}

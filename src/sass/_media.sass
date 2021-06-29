@@ -11,12 +11,30 @@
     .movie-container
         padding: 30px
         grid-template-columns: 310px 310px
+        .movie-indiv
+            width: 260px !important
+            height: 370px !important
 @media (max-width: 700px)
     .container
         width: 310px
     .movie-container
         padding-top: 30px
         grid-template-columns: 310px
+
+@media (max-width: 500px)
+    .movie-container
+        .movie-indiv
+            width: 263px !important
+            height: 377px !important
+    .search-bar input
+        width: 167px !important
+@media (max-width: 280px)
+    .movie-container
+        .movie-indiv
+            width: 229px !important
+            height: 323px !important
+    .search-bar input
+        width: 147px !important
 
 //Movie Detail
 @media (max-width: 1209px)
@@ -45,3 +63,11 @@
     .movie-poster img
         padding-top: 20px
         margin-left: 0px !important
+@media (max-width: 500px)
+    .movie-poster img
+        height: 484px !important
+        width: 313px !important
+@media (max-width: 280px)
+    .movie-poster img
+        height: 395px !important
+        width: 262px !important

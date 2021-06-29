@@ -90,13 +90,13 @@ const MovieList = ({ inputResult }) => {
         }
     }
 
-    window.addEventListener('scroll', () => { //для того чтоб стрелочка появлялась при использовании scrollbar зажав и опуская его
-        if (window.scrollY >= 300) {
-            document.querySelector('.arrow-up').setAttribute('style', 'visibility: visible')
-        } else {
-            document.querySelector('.arrow-up').setAttribute('style', 'visibility: hidden')
-        }
-    })
+    // window.addEventListener('scroll', () => { //для того чтоб стрелочка появлялась при использовании scrollbar зажав и опуская его
+    //     if (window.scrollY >= 300) {
+    //         document.querySelector('.arrow-up').setAttribute('style', 'visibility: visible')
+    //     } else {
+    //         document.querySelector('.arrow-up').setAttribute('style', 'visibility: hidden')
+    //     }
+    // })
 
     /* function handleArrowClose() {
         document.querySelector('.arrow-up').setAttribute('style', 'visibility: hidden')

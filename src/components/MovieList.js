@@ -77,35 +77,37 @@ const MovieList = ({ inputResult }) => {
     //      </Link>
     //  ))
 
-    function handleScroll() { //!!не работает почему-то с onScroll(наверно потому что скролится window а не элемент) onWheel работает
+    // function handleScroll() { //!!не работает почему-то с onScroll(наверно потому что скролится window а не элемент) onWheel работает
+    //
+    //*СРАБОТАЛО с onWheel
+    //!! но теперь стрелочка не исчезает когда на неё нажимаешь так как оно само подымается к началу и колесеко не используется поэтому функция не запускается
+    //
+    //       console.log('scrolling')
+    //       if (window.scrollY >= 300) {
+    //           document.querySelector('.arrow-up').setAttribute('style', 'visibility: visible')
+    //       } else {
+    //           document.querySelector('.arrow-up').setAttribute('style', 'visibility: hidden')
+    //       }
+    //   }
 
-        //*СРАБОТАЛО с onWheel
-        //!! но теперь стрелочка не исчезает когда на неё нажимаешь так как оно само подымается к началу и колесеко не используется поэтому функция не запускается
+    //*Событие выше стало не нужно,так как я решил проблему c window.addEventListener когда в movie detail выдовало ошибку так как в нем небыло элемента на которое воздействует событие,я просто скопировал в movie detail этот jsx эелем(стрелочку) и ошибка исчезла,а там я поставил дисплей нон чтоб небыло её видно за ненадобностю
 
-        console.log('scrolling')
+    window.addEventListener('scroll', () => { //для того чтоб стрелочка появлялась при использовании scrollbar зажав и опуская его
         if (window.scrollY >= 300) {
             document.querySelector('.arrow-up').setAttribute('style', 'visibility: visible')
         } else {
             document.querySelector('.arrow-up').setAttribute('style', 'visibility: hidden')
         }
-    }
+    })
 
-    // window.addEventListener('scroll', () => { //для того чтоб стрелочка появлялась при использовании scrollbar зажав и опуская его
-    //     if (window.scrollY >= 300) {
-    //         document.querySelector('.arrow-up').setAttribute('style', 'visibility: visible')
-    //     } else {
-    //         document.querySelector('.arrow-up').setAttribute('style', 'visibility: hidden')
-    //     }
-    // })
-
-    /* function handleArrowClose() {
+    /* function handleArrowClose() { //! убирало стрелочку при нажатии на неё
         document.querySelector('.arrow-up').setAttribute('style', 'visibility: hidden')
     } */ //не нужно,так как window.scroll эвент и так будет стрелку убирать
 
     //!! useRef первое значение даст undefined а потом даст то на что ссылался это потому что она исполняется пока еще не срендарилось а когда срендарилось уже есть что брать
 
     return (
-        <div className="main-container" onWheel={handleScroll}>
+        <div className="main-container" /* onWheel={handleScroll} */>
             <div className="movie-container container">
                 {/* {renderList} */}
                 {renderFilteredList}

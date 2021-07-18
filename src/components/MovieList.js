@@ -18,7 +18,7 @@ const MovieList = ({ inputResult }) => {
     const renderFilteredList = filteredMovieList.map(movie => (
         <Link key={movie.id} to={`/movie/${movie.id}`}>
             <div className="movie-indiv">
-                <img src={`http://localhost:3000/img/${movie.imgCode}.jpg`} alt={movie.title} />
+                <img src={`img/${movie.imgCode}.jpg`} alt={movie.title} />
                 <div className="hover-info">
                     <div className="title-rating">
                         <h4>{movie.title}</h4>

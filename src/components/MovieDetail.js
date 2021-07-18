@@ -153,7 +153,7 @@ const MovieDetailPage = () => {
                 </div>
             </div>
             <div className="movie-poster">
-                <img src={`http://localhost:3000/img/${movie.imgCode}.jpg`} alt={movie.title} />
+                <img src={`/img/${movie.imgCode}.jpg`} alt={movie.title} />
             </div>
 
             <div style={{ 'display': 'none' }} className="arrow-up"><a href="#header" ><i className="fas fa-long-arrow-alt-up"></i></a></div>

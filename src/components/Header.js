@@ -1,11 +1,10 @@
 import { useEffect, useState } from "react";
 
-
 const Header = ({ setInputResult }) => {
 
     const [input, setInput] = useState('')
 
-    useEffect(() => { //обернул в useeffect чтоб функция выполнялась когда компонент загрузится бузе неё давала ошибку Cannot update a component (`App`) while rendering a different component ('Header')
+    useEffect(() => {
         setInputResult(input)
     })
 

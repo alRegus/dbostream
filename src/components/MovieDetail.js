@@ -8,18 +8,13 @@ const MovieDetailPage = () => {
     const [movie, setMovie] = useState([]);
 
     useEffect(() => {
-        fetch(`http://localhost:8000/data/${id}`)
+        fetch(`https://my-film-api-for-projects.herokuapp.com/data/${id}`)
             .then(res => res.json())
             .then(data => setMovie(data));
     }, [id]);
 
-    console.log(movie)
-
     let backGround
     let video
-
-    //квери селектор на класс модал тут почему-то не работал,выдавал null,сработал внутри функции которая вызывает кликом в jsx элементе
-
 
     switch (movie.imgCode) {
         case "lionheart":
@@ -110,18 +105,17 @@ const MovieDetailPage = () => {
         const modal = document.querySelector('.modal')
         modal.style.display = 'block'
 
-        document.querySelector('.vid-container').innerHTML = video //*решил проблему с iframe из-за которого не позволяло наживать на крестик путем добавления iframe в отдельный контейнер(vid-container) а не в само окно modal как это было
+        document.querySelector('.vid-container').innerHTML = video
     }
 
-    const handleClose = () => { //!! в консоле разработчика при клике на элемент выбирает ::before(не поэтому, в movielist все также но работает + я убрал фонт аусом и поставил просто х и всеравно не работает),работает на .modal, дело наверно в z-index(нет не в нем)(РАЗОБРАЛСЯ - мешает iframe который вставляется)
+    const handleClose = () => {
         document.querySelector('.modal').style.display = 'none'
-        document.querySelector('.vid-container').innerHTML = null //чтоб прекращало играть после закрытия
+        document.querySelector('.vid-container').innerHTML = null
     }
-
 
     return (
         <div className="movie-detail" style={{ "background": backGround }}>
-            <div className="modal" onClick={() => { console.log('click') }}>
+            <div className="modal">
                 <div className="vid-container"></div>
                 <div className="modal-back" onClick={handleClose}><i className="far fa-window-close"></i></div>
             </div>
@@ -162,12 +156,9 @@ const MovieDetailPage = () => {
                 <img src={`http://localhost:3000/img/${movie.imgCode}.jpg`} alt={movie.title} />
             </div>
 
-            <div style={{ 'display': 'none' }} className="arrow-up"><a href="#header" /* onClick={handleArrowClose} */><i className="fas fa-long-arrow-alt-up"></i></a></div>
+            <div style={{ 'display': 'none' }} className="arrow-up"><a href="#header" ><i className="fas fa-long-arrow-alt-up"></i></a></div>
         </div >
     );
-
-
 }
-
 
 export default MovieDetailPage;

@@ -8,9 +8,7 @@ import { useState } from 'react';
 
 function App() {
 
-  //нельзя передавать пропсы от дитя к родителю,но функции можно(также context передает данные от родителя к детям (как и props только пропс передаёт прямому ребенку по цепочке) с той разницы что компоненты обёрнутые контекст провайдер получают данные от контекста и их дети и дети их детей,без того чтобы по цепочке передовать как с props)
-
-  const [inputResult, setInputResult] = useState('') //так я передал (результат ввода) значения из компонента header в компонент movielist
+  const [inputResult, setInputResult] = useState('')
 
   return (
     <div className="App">
@@ -22,7 +20,7 @@ function App() {
               <Header setInputResult={setInputResult} />
               <MovieList inputResult={inputResult} />
             </Route>
-            <Route path="/movie/:id"> {/* с параметром что после двоеточия связан useParam в MovieDetailPage,они должны быть с одинаковым названием */}
+            <Route path="/movie/:id">
               <MovieDetail />
             </Route>
           </Switch>
@@ -34,4 +32,3 @@ function App() {
 
 export default App;
 
-//npx json-server --watch src/db.json --port 8000 для сервера

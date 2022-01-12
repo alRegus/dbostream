@@ -1,34 +1,39 @@
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { lazy, Suspense, useState } from "react";
 
-import './css/style.css';
-import Header from './components/Header'
-import MovieList from './components/MovieList'
-import MovieDetail from './components/MovieDetail';
-import { useState } from 'react';
+import "./sass/style.scss";
+import Header from "./components/Header";
+import LoadingSpinner from "./components/LoadingSpinner";
+import PageNotFound from "./components/PageNotFound";
+
+const MovieList = lazy(() => import("./components/MovieList"));
+const MovieDetail = lazy(() => import("./components/MovieDetail"));
 
 function App() {
-
-  const [inputResult, setInputResult] = useState('')
+  const [inputResult, setInputResult] = useState("");
 
   return (
     <div className="App">
       <Router>
-        <div>
-
-          <Switch>
-            <Route exact path="/">
-              <Header setInputResult={setInputResult} />
+        <Switch>
+          <Route exact path="/">
+            <Header setInputResult={setInputResult} />
+            <Suspense fallback={<LoadingSpinner />}>
               <MovieList inputResult={inputResult} />
-            </Route>
-            <Route path="/movie/:id">
+            </Suspense>
+          </Route>
+          <Route path="/movie/:id">
+            <Suspense fallback={<LoadingSpinner />}>
               <MovieDetail />
-            </Route>
-          </Switch>
-        </div>
+            </Suspense>
+          </Route>
+          <Route path="*" exact={true}>
+            <PageNotFound />
+          </Route>
+        </Switch>
       </Router>
     </div>
   );
 }
 
 export default App;
-

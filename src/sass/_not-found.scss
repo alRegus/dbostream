@@ -1,0 +1,21 @@
+.not-found {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100vh;
+  justify-content: center;
+  &-text {
+    color: #fff;
+    text-align: center;
+    font-size: 3rem;
+  }
+  &-back {
+    background-color: orange;
+    color: #fff;
+    text-decoration: none;
+    padding: 0.8rem;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    margin-top: 1.5rem;
+  }
+}

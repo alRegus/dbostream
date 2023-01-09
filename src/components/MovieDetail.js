@@ -11,7 +11,7 @@ const MovieDetailPage = () => {
   const [genre, setGenre] = useState();
 
   useEffect(() => {
-    fetch(`https://my-film-api-for-projects.herokuapp.com/data/${id}`)
+    fetch(`${process.env.REACT_APP_API}/data/${id}.json`)
       .then((res) => res.json())
       .then((data) => {
         setMovie(data);

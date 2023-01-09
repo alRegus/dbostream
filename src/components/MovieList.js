@@ -5,9 +5,10 @@ const MovieList = ({ inputResult }) => {
   const [movieList, setMovieList] = useState([]);
 
   useEffect(() => {
-    fetch("https://my-film-api-for-projects.herokuapp.com/data")
+    fetch(`${process.env.REACT_APP_API}/data.json`)
       .then((res) => res.json())
-      .then((data) => setMovieList(data));
+      .then((data) => setMovieList(data))
+      .catch((err) => console.log(err.message));
   }, []);
 
   const filteredMovieList = movieList.filter((elem) => {
